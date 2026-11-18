@@ -1,0 +1,68 @@
+# Model weights and partial downloads. Commit models/manifest.json only.
+*.gguf
+*.onnx
+*.bin
+*.partial
+models/weights/
+models/cache/
+native/**/build/
+native/**/build-*/
+
+# Benchmark outputs may contain sample text. Keep templates, ignore raw logs.
+benchmarks/results/**
+!benchmarks/results/.gitkeep
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Android
+android/.gradle/
+android/captures/
+android/local.properties
+android/**/GeneratedPluginRegistrant.java
+*.apk
+*.aab
+*.ap_
+*.dex
+*.jks
+*.keystore
+local.properties
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/Flutter/app.flx
+ios/Flutter/app.zip
+ios/Flutter/flutter_assets/
+ios/Flutter/flutter_export_environment.sh
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Flutter/.last_build_id
+DerivedData/
+
+# Probe checkouts and the unpacked llama executable copied into the Android build.
+third_party/
+native/prebuilt/
+android/app/src/main/jniLibs/
+
+# Misc
+.DS_Store
+*.swp
+*.log
+.env
+.env.*

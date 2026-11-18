@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-11-05",
+  "notes": "只提交元数据。权重不入库。sha256 来自本机已下载文件。这些包只做过 P0 探针，没有经过应用内签名激活。",
+  "packages": [
+    {
+      "id": "qwen3-1.7b-q4-k-m",
+      "version": "ggml-org/Qwen3-1.7B-GGUF",
+      "engine": "llama.cpp",
+      "format": "gguf",
+      "languages": ["zh", "en"],
+      "capabilities": ["text_translation"],
+      "sizeBytes": 1282439264,
+      "sha256": "d2387ca2dbfee2ffabce7120d3770dadca0b293052bc2f0e138fdc940d9bc7b5",
+      "license": "Apache-2.0",
+      "source": "https://huggingface.co/ggml-org/Qwen3-1.7B-GGUF",
+      "minRuntimeVersion": "llama.cpp 29c720eaf72fcf8e4e61a56a88b994d92668261d",
+      "downloadUrl": "https://huggingface.co/ggml-org/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf",
+      "status": "probed",
+      "role": "primary_candidate"
+    },
+    {
+      "id": "qwen3-0.6b-q4-0",
+      "version": "ggml-org/Qwen3-0.6B-GGUF",
+      "engine": "llama.cpp",
+      "format": "gguf",
+      "languages": ["zh", "en"],
+      "capabilities": ["text_translation"],
+      "sizeBytes": 428970080,
+      "sha256": "da2572f16c06133561ce56accaa822216f2391ef4d37fba427801cd6736417d4",
+      "license": "Apache-2.0",
+      "source": "https://huggingface.co/ggml-org/Qwen3-0.6B-GGUF",
+      "minRuntimeVersion": "llama.cpp 29c720eaf72fcf8e4e61a56a88b994d92668261d",
+      "downloadUrl": "https://huggingface.co/ggml-org/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_0.gguf",
+      "status": "probed",
+      "role": "lightweight_comparison",
+      "note": "该仓库没有 Q4_K_M，对照档使用已发布的 Q4_0。不在设置菜单里。"
+    },
+    {
+      "id": "qwen3.5-0.8b-q4-k-m",
+      "version": "bartowski/Qwen_Qwen3.5-0.8B-GGUF Q4_K_M",
+      "engine": "llama.cpp",
+      "format": "gguf",
+      "languages": ["zh", "en"],
+      "capabilities": ["text_translation"],
+      "sizeBytes": 579615840,
+      "sha256": "fb044e93939a70469c905781334f5de1e6c8b608ced6cbc8c9249bd4127d9526",
+      "license": "Apache-2.0",
+      "source": "https://huggingface.co/Qwen/Qwen3.5-0.8B",
+      "minRuntimeVersion": "llama.cpp 29c720eaf72fcf8e4e61a56a88b994d92668261d",
+      "downloadUrl": "https://huggingface.co/bartowski/Qwen_Qwen3.5-0.8B-GGUF/resolve/main/Qwen_Qwen3.5-0.8B-Q4_K_M.gguf",
+      "vision": {
+        "sizeBytes": 204987104,
+        "sha256": "1dc1351c82e41b48edb55fd6ddfa7ca60fb5a16b3d5abf3ce7054880dd022847",
+        "downloadUrl": "https://huggingface.co/bartowski/Qwen_Qwen3.5-0.8B-GGUF/resolve/main/mmproj-Qwen_Qwen3.5-0.8B-f16.gguf"
+      },
+      "status": "listed",
+      "role": "user_choice",
+      "note": "ggml-org 这一档没有 Q4_K_M。使用 bartowski 的 Q4_K_M。看图文件使用同仓库的 f16 mmproj，sha256 取自发布仓库的 LFS 标识，本机尚未下载核对。实机译文未执行。"
+    },
+    {
+      "id": "qwen3.5-2b-q4-k-m",
+      "version": "bartowski/Qwen_Qwen3.5-2B-GGUF Q4_K_M",
+      "engine": "llama.cpp",
+      "format": "gguf",
+      "languages": ["zh", "en"],
+      "capabilities": ["text_translation"],
+      "sizeBytes": 1396198496,
+      "sha256": "57a1085840f497d764a7fc5d346922dbde961efb54cc792ea81d694fd846a1d8",
+      "license": "Apache-2.0",
+      "source": "https://huggingface.co/Qwen/Qwen3.5-2B",
+      "minRuntimeVersion": "llama.cpp 29c720eaf72fcf8e4e61a56a88b994d92668261d",
+      "downloadUrl": "https://huggingface.co/bartowski/Qwen_Qwen3.5-2B-GGUF/resolve/main/Qwen_Qwen3.5-2B-Q4_K_M.gguf",
+      "vision": {
+        "sizeBytes": 668227136,
+        "sha256": "044a0ea136cca70711ae16e23b24d754b44eab6f2462d187aee4d7c7a9503d36",
+        "downloadUrl": "https://huggingface.co/bartowski/Qwen_Qwen3.5-2B-GGUF/resolve/main/mmproj-Qwen_Qwen3.5-2B-f16.gguf"
+      },
+      "status": "listed",
+      "role": "user_choice",
+      "note": "看图文件使用同仓库的 f16 mmproj，sha256 取自发布仓库的 LFS 标识，本机尚未下载核对。实机译文未执行。"
+    },
+    {
+      "id": "qwen3.5-4b-q4-k-m",
+      "version": "bartowski/Qwen_Qwen3.5-4B-GGUF Q4_K_M",
+      "engine": "llama.cpp",
+      "format": "gguf",
+      "languages": ["zh", "en"],
+      "capabilities": ["text_translation"],
+      "sizeBytes": 3013027808,
+      "sha256": "13c16f426047e2de38cd075bdade4a7bcbc8c774384876f677740cda65f8a983",
+      "license": "Apache-2.0",
+      "source": "https://huggingface.co/Qwen/Qwen3.5-4B",
+      "minRuntimeVersion": "llama.cpp 29c720eaf72fcf8e4e61a56a88b994d92668261d",
+      "downloadUrl": "https://huggingface.co/bartowski/Qwen_Qwen3.5-4B-GGUF/resolve/main/Qwen_Qwen3.5-4B-Q4_K_M.gguf",
+      "vision": {
+        "sizeBytes": 672423488,
+        "sha256": "659b59dd44b73b1cd34af6cc424669484b06dc80f4340adf8ea84ad776eef813",
+        "downloadUrl": "https://huggingface.co/bartowski/Qwen_Qwen3.5-4B-GGUF/resolve/main/mmproj-Qwen_Qwen3.5-4B-f16.gguf"
+      },
+      "status": "listed",
+      "role": "user_choice",
+      "note": "8GB 手机也可以下载。2026-11-15 本机核对过语言模型大小和 sha256，并在三星 SM-G991U 上跑完三句中译英，峰值约 3.00 GB。看图文件使用同仓库的 f16 mmproj，sha256 取自发布仓库的 LFS 标识，本机尚未下载核对。"
+    },
+    {
+      "id": "gemma-3-1b-it-q4-k-m",
+      "version": "ggml-org/gemma-3-1b-it-GGUF Q4_K_M",
+      "engine": "llama.cpp",
+      "format": "gguf",
+      "languages": ["zh", "en"],
+      "capabilities": ["text_translation"],
+      "sizeBytes": 806058240,
+      "sha256": "8ccc5cd1f1b3602548715ae25a66ed73fd5dc68a210412eea643eb20eb75a135",
+      "license": "gemma",
+      "source": "https://huggingface.co/google/gemma-3-1b-it",
+      "minRuntimeVersion": "llama.cpp 29c720eaf72fcf8e4e61a56a88b994d92668261d",
+      "downloadUrl": "https://huggingface.co/ggml-org/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q4_K_M.gguf",
+      "status": "listed",
+      "role": "user_choice",
+      "note": "2026-11-05 本机下载核对过大小和 sha256。只使用语言模型文件。实机译文未执行。"
+    },
+    {
+      "id": "gemma-3-4b-it-q4-k-m",
+      "version": "ggml-org/gemma-3-4b-it-GGUF Q4_K_M",
+      "engine": "llama.cpp",
+      "format": "gguf",
+      "languages": ["zh", "en"],
+      "capabilities": ["text_translation"],
+      "sizeBytes": 2489757856,
+      "sha256": "882e8d2db44dc554fb0ea5077cb7e4bc49e7342a1f0da57901c0802ea21a0863",
+      "license": "gemma",
+      "source": "https://huggingface.co/google/gemma-3-4b-it",
+      "minRuntimeVersion": "llama.cpp 29c720eaf72fcf8e4e61a56a88b994d92668261d",
+      "downloadUrl": "https://huggingface.co/ggml-org/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf",
+      "vision": {
+        "sizeBytes": 851251104,
+        "sha256": "8c0fb064b019a6972856aaae2c7e4792858af3ca4561be2dbf649123ba6c40cb",
+        "downloadUrl": "https://huggingface.co/ggml-org/gemma-3-4b-it-GGUF/resolve/main/mmproj-model-f16.gguf"
+      },
+      "status": "listed",
+      "role": "user_choice",
+      "note": "2026-11-05 本机核对过语言模型。8GB 档可选。看图文件是 mmproj-model-f16.gguf，sha256 取自发布仓库的 LFS 标识，本机尚未下载核对。实机译文未执行。"
+    },
+    {
+      "id": "gemma-4-e2b-it-q4-0",
+      "version": "ggml-org/gemma-4-E2B-it-GGUF Q4_0",
+      "engine": "llama.cpp",
+      "format": "gguf",
+      "languages": ["zh", "en"],
+      "capabilities": ["text_translation"],
+      "sizeBytes": 2841481184,
+      "sha256": "8e30dff3ac4c8434c49a7036fa15564bdbb6044e42bf04550bf1a096ad7e6a52",
+      "license": "Apache-2.0",
+      "source": "https://huggingface.co/google/gemma-4-E2B-it",
+      "minRuntimeVersion": "llama.cpp 29c720eaf72fcf8e4e61a56a88b994d92668261d",
+      "downloadUrl": "https://huggingface.co/ggml-org/gemma-4-E2B-it-GGUF/resolve/main/gemma-4-E2B-it-Q4_0.gguf",
+      "vision": {
+        "sizeBytes": 557368096,
+        "sha256": "042cc2561806cd3b5cb5efb25cab76911e3100c43cc09d854904f921924b1429",
+        "downloadUrl": "https://huggingface.co/ggml-org/gemma-4-E2B-it-GGUF/resolve/main/mmproj-gemma-4-E2B-it-Q8_0.gguf"
+      },
+      "status": "listed",
+      "role": "user_choice",
+      "note": "该仓库没有 Q4_K_M，使用已发布的 Q4_0。看图文件用较小的 Q8_0 mmproj，不下 mtp。sha256 取自发布仓库的 LFS 标识，本机尚未下载核对。实机译文未执行。"
+    },
+    {
+      "id": "gemma-4-e4b-it-q4-0",
+      "version": "ggml-org/gemma-4-E4B-it-GGUF Q4_0",
+      "engine": "llama.cpp",
+      "format": "gguf",
+      "languages": ["zh", "en"],
+      "capabilities": ["text_translation"],
+      "sizeBytes": 4590807392,
+      "sha256": "a555b900214b477d8880e7832e0b8925e139b0159640036b09fe472b6f2097f2",
+      "license": "Apache-2.0",
+      "source": "https://huggingface.co/google/gemma-4-E4B-it",
+      "minRuntimeVersion": "llama.cpp 29c720eaf72fcf8e4e61a56a88b994d92668261d",
+      "downloadUrl": "https://huggingface.co/ggml-org/gemma-4-E4B-it-GGUF/resolve/main/gemma-4-E4B-it-Q4_0.gguf",
+      "vision": {
+        "sizeBytes": 559874848,
+        "sha256": "9257f21a0f5358204b4a612cff83fad2e56412f4f607f0049331ce60c0cf9d34",
+        "downloadUrl": "https://huggingface.co/ggml-org/gemma-4-E4B-it-GGUF/resolve/main/mmproj-gemma-4-E4B-it-Q8_0.gguf"
+      },
+      "status": "listed",
+      "role": "user_choice",
+      "note": "该仓库没有 Q4_K_M，使用已发布的 Q4_0。只在总内存达到 11 GiB 的手机上可选。看图文件用较小的 Q8_0 mmproj，不下 mtp。sha256 取自发布仓库的 LFS 标识，本机尚未下载核对。实机译文未执行。"
+    },
+    {
+      "id": "whisper-small-multilingual",
+      "version": "ggerganov/whisper.cpp ggml-small.bin",
+      "engine": "whisper.cpp",
+      "format": "ggml",
+      "languages": ["zh", "en"],
+      "capabilities": ["asr"],
+      "sizeBytes": 487601967,
+      "sha256": "1be3a9b2063867b937e64e2ec7483364a79917e157fa98c5d94b5c1fffea987b",
+      "license": "MIT",
+      "source": "https://huggingface.co/ggerganov/whisper.cpp",
+      "minRuntimeVersion": "whisper.cpp 482279b8a18855ba741d7b88c30fcb3874691f59",
+      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin",
+      "status": "probed",
+      "role": "asr_comparison",
+      "note": "多语言 small。加载日志 n_langs=99。不是 ggml-small.en.bin。"
+    },
+    {
+      "id": "whisper-medium-multilingual",
+      "version": "ggerganov/whisper.cpp ggml-medium.bin",
+      "engine": "whisper.cpp",
+      "format": "ggml",
+      "languages": ["zh", "en"],
+      "capabilities": ["asr"],
+      "sizeBytes": 1533763059,
+      "sha256": "6c14d5adee5f86394037b4e4e8b59f1673b6cee10e3cf0b11bbdbee79c156208",
+      "license": "MIT",
+      "source": "https://huggingface.co/ggerganov/whisper.cpp",
+      "minRuntimeVersion": "whisper.cpp 482279b8a18855ba741d7b88c30fcb3874691f59",
+      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-medium.bin",
+      "status": "listed",
+      "role": "asr_comparison",
+      "note": "多语言 medium。2026-11-03 本机下载核对过大小和 sha256。不是 ggml-medium.en.bin。实机听写未执行。"
+    },
+    {
+      "id": "sense-voice-zh-en-ja-ko-yue-2024-07-17",
+      "version": "2024-07-17",
+      "engine": "sherpa-onnx",
+      "format": "onnx",
+      "languages": ["zh", "en", "ja", "ko", "yue"],
+      "capabilities": ["asr"],
+      "sizeBytes": 937617178,
+      "sha256": "977016bd9c79f9eb343430b5cc305e07ab64d5212dff41b0dcfa1694bee9a8cb",
+      "license": "archive points at FunASR MIT; weight terms not separately stated",
+      "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17.tar.bz2",
+      "minRuntimeVersion": "sherpa-onnx 2.0.1",
+      "downloadUrl": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17.tar.bz2",
+      "status": "probed",
+      "role": "asr_candidate",
+      "note": "2026-11-02 在 OnePlus 6T 上用本地编译的 sherpa-onnx 2.0.1 跑过中英和静音样本。静音仍输出文字。"
+    },
+    {
+      "id": "qwen3-asr-0.6b-int8",
+      "version": "zengshuishui/Qwen3-ASR-onnx model_0.6B int8",
+      "engine": "sherpa-onnx",
+      "format": "onnx",
+      "languages": ["zh", "en"],
+      "capabilities": ["asr"],
+      "sizeBytes": 982554174,
+      "sha256": "4f6885be5959ae26af3089d38ee7972c5fafbeeb1cf8d5e76eab6d8b61ca5771",
+      "license": "apache-2.0",
+      "source": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx",
+      "minRuntimeVersion": "sherpa-onnx 2.0.1",
+      "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/tree/master/model_0.6B",
+      "status": "listed",
+      "role": "user_choice",
+      "files": [
+        {
+          "name": "conv_frontend.onnx",
+          "sizeBytes": 44148281,
+          "sha256": "d22dc4423e0940e49884e903d2ea2f7e5567c14fc1aed97e4e26d6b8f208ef9e",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_0.6B/conv_frontend.onnx"
+        },
+        {
+          "name": "encoder.int8.onnx",
+          "sizeBytes": 182491662,
+          "sha256": "60748d3e6744a57c9c91e1b17424a6c2990567e8adceb0783940c03ed98fa9d9",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_0.6B/encoder.int8.onnx"
+        },
+        {
+          "name": "decoder.int8.onnx",
+          "sizeBytes": 755914231,
+          "sha256": "4f6885be5959ae26af3089d38ee7972c5fafbeeb1cf8d5e76eab6d8b61ca5771",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_0.6B/decoder.int8.onnx"
+        }
+      ],
+      "note": "ONNX int8，不是 Q4/Q8 GGUF。顶层 sha256 是 decoder.int8.onnx。安装按 files 逐个核对。2026-11-05 本机下载核对过大小和 sha256。语音页仍只提供简体和 English。实机听写未执行。"
+    },
+    {
+      "id": "qwen3-asr-0.6b-float32",
+      "version": "zengshuishui/Qwen3-ASR-onnx model_0.6B float32",
+      "engine": "sherpa-onnx",
+      "format": "onnx",
+      "languages": ["zh", "en"],
+      "capabilities": ["asr"],
+      "sizeBytes": 3758454762,
+      "sha256": "2d86c0640759029532d224922a4248e07dace21887dda8dff63ffd7b61d8eae0",
+      "license": "apache-2.0",
+      "source": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx",
+      "minRuntimeVersion": "sherpa-onnx 2.0.1",
+      "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/tree/master/model_0.6B",
+      "status": "listed",
+      "role": "user_choice",
+      "files": [
+        {
+          "name": "conv_frontend.onnx",
+          "sizeBytes": 44148281,
+          "sha256": "d22dc4423e0940e49884e903d2ea2f7e5567c14fc1aed97e4e26d6b8f208ef9e",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_0.6B/conv_frontend.onnx"
+        },
+        {
+          "name": "encoder.onnx",
+          "sizeBytes": 5594598,
+          "sha256": "710609f285ce160f55acd346648010a2daa14fa7d6703fd1d30a12a994d0d637",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_0.6B/encoder.onnx"
+        },
+        {
+          "name": "encoder.onnx.data",
+          "sizeBytes": 701367808,
+          "sha256": "3082f026bf9c18b3ce1ba5408a18014b659c6dd2ff020e5ac34d8abdb50489b2",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_0.6B/encoder.onnx.data"
+        },
+        {
+          "name": "decoder.onnx",
+          "sizeBytes": 843211,
+          "sha256": "cec03c39c09177b4ab33fde06e5e12d9f225214b7a0cf82ac9823f2e954f5a68",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_0.6B/decoder.onnx"
+        },
+        {
+          "name": "decoder.onnx.data",
+          "sizeBytes": 3006500864,
+          "sha256": "2d86c0640759029532d224922a4248e07dace21887dda8dff63ffd7b61d8eae0",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_0.6B/decoder.onnx.data"
+        }
+      ],
+      "note": "float32 的 onnx 与同名 .data 必须放在同一目录。顶层 sha256 是 decoder.onnx.data。安装按 files 逐个核对。2026-11-05 本机下载核对过大小和 sha256。实机听写未执行。"
+    },
+    {
+      "id": "qwen3-asr-1.7b-int8",
+      "version": "zengshuishui/Qwen3-ASR-onnx model_1.7B int8",
+      "engine": "sherpa-onnx",
+      "format": "onnx",
+      "languages": ["zh", "en"],
+      "capabilities": ["asr"],
+      "sizeBytes": 2399761248,
+      "sha256": "c43c853fa6e97d08365cb8a5502b360b595cd43c00dc60e4d8ca7cc18cad460b",
+      "license": "apache-2.0",
+      "source": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx",
+      "minRuntimeVersion": "sherpa-onnx 2.0.1",
+      "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/tree/master/model_1.7B",
+      "status": "listed",
+      "role": "user_choice",
+      "files": [
+        {
+          "name": "conv_frontend.onnx",
+          "sizeBytes": 48080441,
+          "sha256": "fa894a4ba53da6a4238f2a6ca0b09362e505d39cecbd646051b033e2e8d7e2fb",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_1.7B/conv_frontend.onnx"
+        },
+        {
+          "name": "encoder.int8.onnx",
+          "sizeBytes": 314222162,
+          "sha256": "436fbd910a0c8914851e5ac1354e807be9f283d08a5da728adaa609731c41469",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_1.7B/encoder.int8.onnx"
+        },
+        {
+          "name": "decoder.int8.onnx",
+          "sizeBytes": 2037458645,
+          "sha256": "c43c853fa6e97d08365cb8a5502b360b595cd43c00dc60e4d8ca7cc18cad460b",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_1.7B/decoder.int8.onnx"
+        }
+      ],
+      "note": "ONNX int8，不是 Q4/Q8 GGUF。顶层 sha256 是 decoder.int8.onnx。安装按 files 逐个核对。2026-11-05 本机下载核对过大小和 sha256。实机听写未执行。"
+    },
+    {
+      "id": "qwen3-asr-1.7b-float32",
+      "version": "zengshuishui/Qwen3-ASR-onnx model_1.7B float32",
+      "engine": "sherpa-onnx",
+      "format": "onnx",
+      "languages": ["zh", "en"],
+      "capabilities": ["asr"],
+      "sizeBytes": 9404125598,
+      "sha256": "3689f9e1f7b45b0b63319e16aca5b5af924a9c874a7316355f2e43e55d018092",
+      "license": "apache-2.0",
+      "source": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx",
+      "minRuntimeVersion": "sherpa-onnx 2.0.1",
+      "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/tree/master/model_1.7B",
+      "status": "listed",
+      "role": "user_choice",
+      "files": [
+        {
+          "name": "conv_frontend.onnx",
+          "sizeBytes": 48080441,
+          "sha256": "fa894a4ba53da6a4238f2a6ca0b09362e505d39cecbd646051b033e2e8d7e2fb",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_1.7B/conv_frontend.onnx"
+        },
+        {
+          "name": "encoder.onnx",
+          "sizeBytes": 6429949,
+          "sha256": "182d2cb220b18f9df4a7d03792cf1010ea0c485bf10524e5f983c2c7f10994ff",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_1.7B/encoder.onnx"
+        },
+        {
+          "name": "encoder.onnx.data",
+          "sizeBytes": 1221840896,
+          "sha256": "3736f164633f8dd14f4a405d495af65630789f7bb0a8ff2d0505affaa1c5e974",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_1.7B/encoder.onnx.data"
+        },
+        {
+          "name": "decoder.onnx",
+          "sizeBytes": 843368,
+          "sha256": "c4ae9ab1a26fbcc2daa7108a77936436a267010d6de781780c19a7e1613680c8",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_1.7B/decoder.onnx"
+        },
+        {
+          "name": "decoder.onnx.data",
+          "sizeBytes": 8126930944,
+          "sha256": "3689f9e1f7b45b0b63319e16aca5b5af924a9c874a7316355f2e43e55d018092",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/model_1.7B/decoder.onnx.data"
+        }
+      ],
+      "note": "只在总内存达到 11 GiB 的手机上可选。float32 的 onnx 与同名 .data 必须放在同一目录。顶层 sha256 是 decoder.onnx.data。2026-11-05 本机下载核对过大小和 sha256。实机听写未执行。"
+    },
+    {
+      "id": "qwen3-asr-tokenizer",
+      "version": "zengshuishui/Qwen3-ASR-onnx tokenizer",
+      "engine": "sherpa-onnx",
+      "format": "json",
+      "languages": ["zh", "en"],
+      "capabilities": ["asr"],
+      "sizeBytes": 4461173,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "license": "apache-2.0",
+      "source": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx",
+      "minRuntimeVersion": "sherpa-onnx 2.0.1",
+      "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/tree/master/tokenizer",
+      "status": "listed",
+      "role": "asr_tokenizer",
+      "files": [
+        {
+          "name": "vocab.json",
+          "sizeBytes": 2776833,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/tokenizer/vocab.json"
+        },
+        {
+          "name": "merges.txt",
+          "sizeBytes": 1671853,
+          "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/tokenizer/merges.txt"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "sizeBytes": 12487,
+          "sha256": "4942d005604266809309cabc9f4e9cb89ce855d59b14681fdc0e1cc62ea26c4c",
+          "downloadUrl": "https://modelscope.cn/models/zengshuishui/Qwen3-ASR-onnx/resolve/master/tokenizer/tokenizer_config.json"
+        }
+      ],
+      "note": "四套 Qwen3-ASR 共用。sherpa 要求 vocab.json、merges.txt 和 tokenizer_config.json。不单独出现在菜单里。2026-11-05 本机下载核对过大小和 sha256。"
+    },
+    {
+      "id": "vits-zh-ll",
+      "version": "community",
+      "engine": "sherpa-onnx",
+      "format": "onnx",
+      "languages": ["zh"],
+      "capabilities": ["tts"],
+      "sizeBytes": 121100803,
+      "sha256": "6c349bdd73dc928234dd7bc86929748bba32cd5264d32d915bf7b7aa0595965b",
+      "license": "not stated in the model README",
+      "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-vits-zh-ll.tar.bz2",
+      "minRuntimeVersion": "sherpa-onnx 2.0.1",
+      "downloadUrl": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-vits-zh-ll.tar.bz2",
+      "status": "probed",
+      "role": "tts_zh_candidate",
+      "note": "2026-11-02 在 OnePlus 6T 上合成出 1.993 秒 wav。README 仍无许可证。"
+    },
+    {
+      "id": "vits-piper-en-us-lessac-medium",
+      "version": "medium",
+      "engine": "sherpa-onnx",
+      "format": "onnx",
+      "languages": ["en"],
+      "capabilities": ["tts"],
+      "sizeBytes": 63149198,
+      "sha256": "4ba07d8549906668ee855fd9abf9faf66c5db74742712ff026a159f7277fca9f",
+      "license": "Blizzard 2013 Lessac research licence; not cleared for app redistribution",
+      "source": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-lessac-medium.tar.bz2",
+      "minRuntimeVersion": "requires an espeak frontend; sherpa-onnx 2.0.1 does not provide one",
+      "downloadUrl": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-lessac-medium.tar.bz2",
+      "status": "downloaded_run_failed",
+      "role": "tts_en_candidate"
+    }
+  ]
+}
