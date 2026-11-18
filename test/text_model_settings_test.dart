@@ -40,28 +40,31 @@ void main() {
     expect(downloadPercent(10, 0), isNull);
   });
 
-  test('Gemma 4 E4B needs 11 GiB and Qwen3.5-4B does not', () {
-    expect(allowsLargeTextModel(largeTextModelMinBytes - 1), isFalse);
-    expect(allowsLargeTextModel(largeTextModelMinBytes), isTrue);
-    expect(allowsLargeTextModel(null), isFalse);
+  test('Gemma 4 E4B needs 12 GiB and Qwen3.5-4B does not', () {
     expect(
-      resolveTextModel(TextModelChoice.qwen35_4b, largeTextModelMinBytes - 1),
+      TextModelChoice.gemma4E4b.allowedWith(gemma4E4bMinBytes - 1),
+      isFalse,
+    );
+    expect(TextModelChoice.gemma4E4b.allowedWith(gemma4E4bMinBytes), isTrue);
+    expect(TextModelChoice.gemma4E4b.allowedWith(null), isFalse);
+    expect(
+      resolveTextModel(TextModelChoice.qwen35_4b, gemma4E4bMinBytes - 1),
       TextModelChoice.qwen35_4b,
     );
     expect(
-      resolveTextModel(TextModelChoice.qwen35_4b, 12 * 1024 * 1024 * 1024),
+      resolveTextModel(TextModelChoice.qwen35_4b, gemma4E4bMinBytes),
       TextModelChoice.qwen35_4b,
     );
     expect(
-      resolveTextModel(TextModelChoice.gemma4E4b, largeTextModelMinBytes - 1),
+      resolveTextModel(TextModelChoice.gemma4E4b, gemma4E4bMinBytes - 1),
       TextModelChoice.qwen31_7b,
     );
     expect(
-      resolveTextModel(TextModelChoice.gemma4E4b, largeTextModelMinBytes),
+      resolveTextModel(TextModelChoice.gemma4E4b, gemma4E4bMinBytes),
       TextModelChoice.gemma4E4b,
     );
     expect(
-      resolveTextModel(TextModelChoice.gemma3_4b, largeTextModelMinBytes - 1),
+      resolveTextModel(TextModelChoice.gemma3_4b, gemma4E4bMinBytes - 1),
       TextModelChoice.gemma3_4b,
     );
   });

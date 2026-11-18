@@ -4,15 +4,9 @@
 
 ## 概要
 
-GPTAnywhere 在手机上使用端侧模型实现对话，并翻译文字、图片和语音。模型下载到本机后可以离线使用，不按次付费，对话原文、图片、录音和结果也不会上传。无需联网、兼顾免费使用与隐私安全。
+GPTAnywhere 在手机上使用端侧大模型实现对话，并翻译文字、图片和语音。模型下载到本机后可以离线使用，不按次付费，对话原文、图片、录音和结果也不会上传。无需联网、兼顾免费使用与隐私安全。
 
-<p align="center">
-  <img src="docs/screenshots/chat.jpg" width="18%" alt="对话">
-  <img src="docs/screenshots/chat-story.jpg" width="18%" alt="对话故事">
-  <img src="docs/screenshots/voice.jpg" width="18%" alt="语音翻译">
-  <img src="docs/screenshots/text-models.jpg" width="18%" alt="文本模型">
-  <img src="docs/screenshots/speech-models.jpg" width="18%" alt="语音模型">
-</p>
+![对话](docs/screenshots/chat.jpg)![对话故事](docs/screenshots/chat-story.jpg)![语音翻译](docs/screenshots/voice.jpg)![文本模型](docs/screenshots/text-models.jpg)![语音模型](docs/screenshots/speech-models.jpg)
 
 ## 功能
 
@@ -143,7 +137,7 @@ flutter run -d <设备号> --debug
 ## 测试
 
 Android  
-Galaxy S21（8GB 内存，机型 SM-G991U，Android 13）。总内存低于约 11GB，大模型不可选。
+Galaxy S21（8GB 内存，机型 SM-G991U，Android 13）。内存低于 12GB，Gemma 4 E4B 不可选。内存低于 16GB，Qwen3-ASR 1.7B float32 不可选。
 
 文本模型
 

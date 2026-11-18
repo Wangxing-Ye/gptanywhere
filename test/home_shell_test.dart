@@ -189,28 +189,32 @@ void main() {
     expect(
       resolveAsrEngine(
         AsrEngineChoice.qwen3Asr17Float32,
-        largeTextModelMinBytes - 1,
+        qwen3Asr17Float32MinBytes - 1,
       ),
       AsrEngineChoice.senseVoice,
     );
     expect(
       resolveAsrEngine(
         AsrEngineChoice.qwen3Asr17Float32,
-        largeTextModelMinBytes,
+        qwen3Asr17Float32MinBytes,
       ),
       AsrEngineChoice.qwen3Asr17Float32,
     );
     expect(
+      resolveAsrEngine(AsrEngineChoice.qwen3Asr17Float32, null),
+      AsrEngineChoice.senseVoice,
+    );
+    expect(
       resolveAsrEngine(
         AsrEngineChoice.qwen3Asr06Float32,
-        largeTextModelMinBytes - 1,
+        qwen3Asr17Float32MinBytes - 1,
       ),
       AsrEngineChoice.qwen3Asr06Float32,
     );
     expect(
       resolveAsrEngine(
         AsrEngineChoice.qwen3Asr17Int8,
-        largeTextModelMinBytes - 1,
+        qwen3Asr17Float32MinBytes - 1,
       ),
       AsrEngineChoice.qwen3Asr17Int8,
     );

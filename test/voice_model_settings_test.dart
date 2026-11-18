@@ -133,8 +133,43 @@ void main() {
     expect((await harness.store.load()).asrEngine, AsrEngineChoice.senseVoice);
   });
 
-  testWidgets('12GB phone can select Qwen3-ASR 1.7B float32', (tester) async {
-    final harness = _QwenHarness(largeTextModelMinBytes);
+  testWidgets('12 GiB phone cannot select Qwen3-ASR 1.7B float32', (
+    tester,
+  ) async {
+    final harness = _QwenHarness(12 * 1024 * 1024 * 1024);
+    addTearDown(harness.dispose);
+
+    await tester.pumpWidget(harness.app());
+    await tester.pump();
+    await tester.scrollUntilVisible(find.text('Qwen3-ASR 1.7B float32'), 300);
+
+    final tile = tester.widget<RadioListTile<AsrEngineChoice>>(
+      find.widgetWithText(
+        RadioListTile<AsrEngineChoice>,
+        'Qwen3-ASR 1.7B float32',
+      ),
+    );
+    expect(tile.enabled, isFalse);
+    final smaller = tester.widget<RadioListTile<AsrEngineChoice>>(
+      find.widgetWithText(
+        RadioListTile<AsrEngineChoice>,
+        'Qwen3-ASR 1.7B int8',
+      ),
+    );
+    expect(smaller.enabled, isTrue);
+
+    await tester.tap(
+      find.widgetWithText(
+        RadioListTile<AsrEngineChoice>,
+        'Qwen3-ASR 1.7B float32',
+      ),
+    );
+    await tester.pump();
+    expect((await harness.store.load()).asrEngine, AsrEngineChoice.senseVoice);
+  });
+
+  testWidgets('16 GiB phone can select Qwen3-ASR 1.7B float32', (tester) async {
+    final harness = _QwenHarness(qwen3Asr17Float32MinBytes);
     addTearDown(harness.dispose);
 
     await tester.pumpWidget(harness.app());

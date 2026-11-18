@@ -4,15 +4,9 @@
 
 ## Overview
 
-GPTAnywhere uses on-device models on a phone for conversation, and for translating text, photos, and speech. After a model is downloaded to the phone, it works offline. Use is not charged per request. The original text, pictures, recordings, and results are not uploaded. It does not need a network connection, and it is meant for free use and privacy.
+GPTAnywhere uses on-device large language models on a phone for conversation, and for translating text, photos, and speech. After a model is downloaded to the phone, it works offline. Use is not charged per request. The original text, pictures, recordings, and results are not uploaded. It does not need a network connection, and it is meant for free use and privacy.
 
-<p align="center">
-  <img src="docs/screenshots/chat.jpg" width="18%" alt="Chat">
-  <img src="docs/screenshots/chat-story.jpg" width="18%" alt="Chat story">
-  <img src="docs/screenshots/voice.jpg" width="18%" alt="Voice translation">
-  <img src="docs/screenshots/text-models.jpg" width="18%" alt="Text models">
-  <img src="docs/screenshots/speech-models.jpg" width="18%" alt="Speech models">
-</p>
+![Chat](docs/screenshots/chat.jpg)![Chat story](docs/screenshots/chat-story.jpg)![Voice translation](docs/screenshots/voice.jpg)![Text models](docs/screenshots/text-models.jpg)![Speech models](docs/screenshots/speech-models.jpg)
 
 ## Features
 
@@ -143,7 +137,7 @@ flutter run -d <device-id> --debug
 ## Tests
 
 Android  
-Galaxy S21 (8 GB RAM, model SM-G991U, Android 13). Total memory is under about 11 GB, so the largest models cannot be selected.
+Galaxy S21 (8 GB RAM, model SM-G991U, Android 13). When memory is under 12 GB, Gemma 4 E4B cannot be selected. When memory is under 16 GB, Qwen3-ASR 1.7B float32 cannot be selected.
 
 Text models
 

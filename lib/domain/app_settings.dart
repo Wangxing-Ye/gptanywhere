@@ -1,20 +1,33 @@
 import 'package:flutter/foundation.dart';
 
-enum TextModelChoice {
-  qwen31_7b('qwen3-1.7b-q4-k-m', 'Qwen3-1.7B', false),
-  qwen35_0_8b('qwen3.5-0.8b-q4-k-m', 'Qwen3.5-0.8B', false),
-  qwen35_2b('qwen3.5-2b-q4-k-m', 'Qwen3.5-2B', false),
-  qwen35_4b('qwen3.5-4b-q4-k-m', 'Qwen3.5-4B', false),
-  gemma3_1b('gemma-3-1b-it-q4-k-m', 'Gemma 3 1B', false),
-  gemma3_4b('gemma-3-4b-it-q4-k-m', 'Gemma 3 4B', false),
-  gemma4E2b('gemma-4-e2b-it-q4-0', 'Gemma 4 E2B', false),
-  gemma4E4b('gemma-4-e4b-it-q4-0', 'Gemma 4 E4B', true);
+/// Gemma 4 E4B stays unavailable when total memory is under 12 GiB.
+const gemma4E4bMinBytes = 12 * 1024 * 1024 * 1024;
 
-  const TextModelChoice(this.id, this.label, this.requiresLargeMemory);
+/// Qwen3-ASR 1.7B float32 stays unavailable when total memory is under 16 GiB.
+const qwen3Asr17Float32MinBytes = 16 * 1024 * 1024 * 1024;
+
+enum TextModelChoice {
+  qwen31_7b('qwen3-1.7b-q4-k-m', 'Qwen3-1.7B', 0),
+  qwen35_0_8b('qwen3.5-0.8b-q4-k-m', 'Qwen3.5-0.8B', 0),
+  qwen35_2b('qwen3.5-2b-q4-k-m', 'Qwen3.5-2B', 0),
+  qwen35_4b('qwen3.5-4b-q4-k-m', 'Qwen3.5-4B', 0),
+  gemma3_1b('gemma-3-1b-it-q4-k-m', 'Gemma 3 1B', 0),
+  gemma3_4b('gemma-3-4b-it-q4-k-m', 'Gemma 3 4B', 0),
+  gemma4E2b('gemma-4-e2b-it-q4-0', 'Gemma 4 E2B', 0),
+  gemma4E4b('gemma-4-e4b-it-q4-0', 'Gemma 4 E4B', gemma4E4bMinBytes);
+
+  const TextModelChoice(this.id, this.label, this.minMemoryBytes);
 
   final String id;
   final String label;
-  final bool requiresLargeMemory;
+
+  /// Zero means the phone's total memory does not gate this model.
+  final int minMemoryBytes;
+
+  bool allowedWith(int? totalBytes) {
+    if (minMemoryBytes <= 0) return true;
+    return totalBytes != null && totalBytes >= minMemoryBytes;
+  }
 
   static TextModelChoice fromStorage(String? raw) {
     for (final choice in values) {
@@ -24,17 +37,8 @@ enum TextModelChoice {
   }
 }
 
-/// Marketed 12GB phones report a little under 12 GiB.
-const largeTextModelMinBytes = 11 * 1024 * 1024 * 1024;
-
-bool allowsLargeTextModel(int? totalBytes) {
-  return totalBytes != null && totalBytes >= largeTextModelMinBytes;
-}
-
 TextModelChoice resolveTextModel(TextModelChoice choice, int? totalBytes) {
-  if (choice.requiresLargeMemory && !allowsLargeTextModel(totalBytes)) {
-    return TextModelChoice.qwen31_7b;
-  }
+  if (!choice.allowedWith(totalBytes)) return TextModelChoice.qwen31_7b;
   return choice;
 }
 
@@ -59,18 +63,25 @@ String formatModelSize(int bytes) {
 }
 
 enum AsrEngineChoice {
-  senseVoice('SenseVoice', false),
-  whisperSmall('Whisper-small', false),
-  whisperMedium('Whisper-medium', false),
-  qwen3Asr06Int8('Qwen3-ASR 0.6B int8', false),
-  qwen3Asr06Float32('Qwen3-ASR 0.6B float32', false),
-  qwen3Asr17Int8('Qwen3-ASR 1.7B int8', false),
-  qwen3Asr17Float32('Qwen3-ASR 1.7B float32', true);
+  senseVoice('SenseVoice', 0),
+  whisperSmall('Whisper-small', 0),
+  whisperMedium('Whisper-medium', 0),
+  qwen3Asr06Int8('Qwen3-ASR 0.6B int8', 0),
+  qwen3Asr06Float32('Qwen3-ASR 0.6B float32', 0),
+  qwen3Asr17Int8('Qwen3-ASR 1.7B int8', 0),
+  qwen3Asr17Float32('Qwen3-ASR 1.7B float32', qwen3Asr17Float32MinBytes);
 
-  const AsrEngineChoice(this.label, this.requiresLargeMemory);
+  const AsrEngineChoice(this.label, this.minMemoryBytes);
 
   final String label;
-  final bool requiresLargeMemory;
+
+  /// Zero means the phone's total memory does not gate this model.
+  final int minMemoryBytes;
+
+  bool allowedWith(int? totalBytes) {
+    if (minMemoryBytes <= 0) return true;
+    return totalBytes != null && totalBytes >= minMemoryBytes;
+  }
 
   static AsrEngineChoice fromStorage(String? raw) {
     return switch (raw) {
@@ -111,9 +122,7 @@ enum AsrEngineChoice {
 }
 
 AsrEngineChoice resolveAsrEngine(AsrEngineChoice choice, int? totalBytes) {
-  if (choice.requiresLargeMemory && !allowsLargeTextModel(totalBytes)) {
-    return AsrEngineChoice.senseVoice;
-  }
+  if (!choice.allowedWith(totalBytes)) return AsrEngineChoice.senseVoice;
   return choice;
 }
 

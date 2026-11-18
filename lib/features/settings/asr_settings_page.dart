@@ -61,8 +61,7 @@ class _AsrSettingsPageState extends State<AsrSettingsPage> {
   }
 
   bool _allowed(AsrEngineChoice choice) {
-    return !choice.requiresLargeMemory ||
-        allowsLargeTextModel(widget.totalMemoryBytes);
+    return choice.allowedWith(widget.totalMemoryBytes);
   }
 
   Future<void> _select(AsrEngineChoice? choice) async {

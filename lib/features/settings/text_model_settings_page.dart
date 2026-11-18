@@ -45,9 +45,7 @@ class _TextModelSettingsPageState extends State<TextModelSettingsPage> {
         continue;
       }
       try {
-        installed[choice.id] = await scope.models.isFullyInstalled(
-          choice.id,
-        );
+        installed[choice.id] = await scope.models.isFullyInstalled(choice.id);
       } on AppFailure {
         installed[choice.id] = false;
       }
@@ -63,8 +61,7 @@ class _TextModelSettingsPageState extends State<TextModelSettingsPage> {
   }
 
   bool _allowed(TextModelChoice choice) {
-    return !choice.requiresLargeMemory ||
-        allowsLargeTextModel(widget.totalMemoryBytes);
+    return choice.allowedWith(widget.totalMemoryBytes);
   }
 
   Future<void> _select(TextModelChoice? choice) async {
