@@ -4,7 +4,7 @@
 
 ## 概要
 
-GPTAnywhere 在手机上使用端侧大模型实现对话，并翻译文字、图片和语音。模型下载到本机后可以离线使用，不按次付费，对话原文、图片、录音和结果也不会上传。无需联网、兼顾免费使用与隐私安全。
+GPTAnywhere 在手机上使用端侧大模型实现对话，并翻译文字、图片和语音。模型下载到本机后可以离线使用，不按token付费，对话原文、图片、录音和结果也不会上传。无需联网、兼顾免费使用与隐私安全。
 
 ![对话](docs/screenshots/chat.jpg)![对话故事](docs/screenshots/chat-story.jpg)![语音翻译](docs/screenshots/voice.jpg)![文本模型](docs/screenshots/text-models.jpg)![语音模型](docs/screenshots/speech-models.jpg)
 
@@ -174,4 +174,4 @@ iPhone 14（6GB 内存，iOS 26.6.2），同样参数设置下的 Token 速度�
 | Gemma 3 4B Q4_K_M | 约 49–69 token/s | 约 12 token/s |
 | Gemma 4 E2B Q4_0 | 约 52–137 token/s | 约 18–19 token/s |  
 
-以上是两款都是2022年之前的移动设备，可以当前绝大部分手机可以顺利运行 GPTAnywhere。
+以上是两款都是2022年之前的移动设备，当前绝大部分手机可以顺利运行 GPTAnywhere。

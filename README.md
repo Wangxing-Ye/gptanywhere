@@ -4,7 +4,7 @@
 
 ## Overview
 
-GPTAnywhere uses on-device large language models on a phone for conversation, and for translating text, photos, and speech. After a model is downloaded to the phone, it works offline. Use is not charged per request. The original text, pictures, recordings, and results are not uploaded. It does not need a network connection, and it is meant for free use and privacy.
+GPTAnywhere uses on-device large language models on a phone for conversation, and for translating text, photos, and speech. After a model is downloaded to the phone, it works offline. Use is not charged per token. The original text, pictures, recordings, and results are not uploaded. It does not need a network connection, and it is meant for free use and privacy.
 
 ![Chat](docs/screenshots/chat.jpg)![Chat story](docs/screenshots/chat-story.jpg)![Voice translation](docs/screenshots/voice.jpg)![Text models](docs/screenshots/text-models.jpg)![Speech models](docs/screenshots/speech-models.jpg)
 
