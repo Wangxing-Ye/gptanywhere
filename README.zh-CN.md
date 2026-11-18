@@ -6,7 +6,15 @@
 
 GPTAnywhere 在手机上使用端侧大模型实现对话，并翻译文字、图片和语音。模型下载到本机后可以离线使用，不按token付费，对话原文、图片、录音和结果也不会上传。无需联网、兼顾免费使用与隐私安全。
 
-![对话](docs/screenshots/chat.jpg)![对话故事](docs/screenshots/chat-story.jpg)![语音翻译](docs/screenshots/voice.jpg)![文本模型](docs/screenshots/text-models.jpg)![语音模型](docs/screenshots/speech-models.jpg)
+<p align="center">
+  <img src="docs/screenshots/chat.jpg" width="30%" alt="对话">
+  <img src="docs/screenshots/chat-story.jpg" width="30%" alt="对话故事">
+  <img src="docs/screenshots/voice.jpg" width="30%" alt="语音翻译">
+</p>
+<p align="center">
+  <img src="docs/screenshots/text-models.jpg" width="30%" alt="文本模型">
+  <img src="docs/screenshots/speech-models.jpg" width="30%" alt="语音模型">
+</p>
 
 ## 功能
 
