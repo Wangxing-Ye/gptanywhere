@@ -646,7 +646,7 @@ class _ChatPageState extends State<ChatPage> {
                 onPressed: () => _togglePlay(index),
                 icon: Icon(_playing == index ? Icons.stop : Icons.play_arrow),
               ),
-            if (message.text.isNotEmpty) Text(message.text),
+            if (message.text.isNotEmpty) SelectableText(message.text),
           ],
         ),
       ),

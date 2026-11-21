@@ -12,13 +12,14 @@ GPTAnywhere uses on-device large language models on a phone for conversation, an
   <img src="docs/screenshots/voice.jpg" width="30%" alt="Voice translation">
 </p>
 <p align="center">
-  <img src="docs/screenshots/text-models.jpg" width="30%" alt="Text models">
+  <img src="docs/screenshots/text-models-1.jpg" width="30%" alt="Text models">
+  <img src="docs/screenshots/text-models-2.jpg" width="30%" alt="Text models, continued">
   <img src="docs/screenshots/speech-models.jpg" width="30%" alt="Speech models">
 </p>
 
 ## Features
 
-- **Chat**: Talk freely with the current text model. The latest turns go into one call. Earlier turns that do not fit are dropped. The conversation stays only in memory for this process. Qwen3-1.7B and Gemma 3 1B recognize the text in a picture before sending it to the model. Other models first use that model's own mmproj to analyze the picture, then send it to the model.
+- **Chat**: Talk freely with the current text model. The latest turns go into one call. Earlier turns that do not fit are dropped. The conversation stays only in memory for this process. Qwen3-1.7B, Gemma 3 1B, LFM2.5-1.2B, LFM3-1.7B, MiniCPM5-1B, and MiniCPM5-2B recognize the text in a picture before sending it to the model. Other models, including LFM2.5-VL-1.6B and MiniCPM-V 4.7 1B, first use that model's own mmproj to analyze the picture, then send it to the model.
 - **Text**: Translate entered text with the current text model. The app detects the language and translates in either direction.
 - **Photo**: Recognize the text in a photo, then translate it with the current text model. A camera photo is cropped first. Only the confirmed area is sent for recognition.
 - **Voice**: Recognize text from a speech file or a recording, then translate it with the current text model. One recording lasts at most 30 seconds.
@@ -38,6 +39,12 @@ GPTAnywhere uses on-device large language models on a phone for conversation, an
 | Gemma 3 4B Q4_K_M   | 2.49 GB | 851 MB      | Yes   | 128K    |
 | Gemma 4 E2B Q4_0    | 2.84 GB | 557 MB      | Yes   | 128K    |
 | Gemma 4 E4B Q4_0    | 4.59 GB | 560 MB      | Yes   | 128K    |
+| LFM2.5-1.2B Q4_K_M  | 731 MB  | None        | No    | 32K     |
+| LFM3-1.7B Q4_K_M    | 1.10 GB | None        | No    | 256K    |
+| LFM2.5-VL-1.6B Q4_K_M | 731 MB | 583 MB      | Yes   | 32K     |
+| MiniCPM-V 4.7 1B Q4_K_M | 672 MB | 1.11 GB   | Yes   | 262K    |
+| MiniCPM5-1B Q4_K_M  | 688 MB  | None        | No    | 128K    |
+| MiniCPM5-2B Q4_K_M  | 1.56 GB | None        | No    | 128K    |
 
 A vision file is the other file next to a language model. It is also called mmproj. It turns a picture into data that model can read. The size in the table is this file itself, downloaded in addition to the language model. Each model uses only its own vision file. A model marked None cannot read a picture directly. In Chat, the text in the picture is recognized first and then passed to the model.
 
@@ -72,6 +79,12 @@ Text models share one call path. Dart's `LlamaTranslationEngine` and `LlamaChatE
 | Gemma 3 4B | llama.cpp | Same | Same |
 | Gemma 4 E2B | llama.cpp | Same | Same |
 | Gemma 4 E4B | llama.cpp | Same | Same |
+| LFM2.5-1.2B | llama.cpp | Same | Same |
+| LFM3-1.7B | llama.cpp | Same | Same |
+| LFM2.5-VL-1.6B | llama.cpp | Same | Same |
+| MiniCPM-V 4.7 1B | llama.cpp | Same | Same |
+| MiniCPM5-1B | llama.cpp | Same | Same |
+| MiniCPM5-2B | llama.cpp | Same | Same |
 
 Changing the model only changes its GGUF file.
 
@@ -149,7 +162,7 @@ Galaxy S21 (8 GB RAM, model SM-G991U, Android 13). When memory is under 12 GB, G
 
 Text models
 
-- Available: Qwen3-1.7B (1.28 GB), Qwen3.5-0.8B (580 MB), Qwen3.5-2B (1.40 GB), Qwen3.5-4B (3.01 GB), Gemma 3 1B (806 MB), Gemma 3 4B (2.49 GB), Gemma 4 E2B (2.84 GB)
+- Available: Qwen3-1.7B (1.28 GB), Qwen3.5-0.8B (580 MB), Qwen3.5-2B (1.40 GB), Qwen3.5-4B (3.01 GB), Gemma 3 1B (806 MB), Gemma 3 4B (2.49 GB), Gemma 4 E2B (2.84 GB), LFM2.5-1.2B (731 MB), LFM2.5-VL-1.6B (731 MB), LFM3-1.7B (1.10 GB), MiniCPM-V 4.7 1B (672 MB), MiniCPM5-1B (688 MB), MiniCPM5-2B (1.56 GB)
 - Unavailable: Gemma 4 E4B (4.59 GB)
 
 Speech models
@@ -158,7 +171,7 @@ Speech models
 - Unavailable: Qwen3-ASR 1.7B float32 (9.40 GB)
 
 Token speed  
-Parameters: context 2048, temperature 0.2, 4 threads.
+Parameters: context 2048, temperature 0.2, 4 threads. LFM2.5-VL-1.6B and MiniCPM-V 4.7 1B were timed on the language file only, without the vision file.
 
 | Model | Prompt | Generation |
 | --- | --- | --- |
@@ -169,6 +182,12 @@ Parameters: context 2048, temperature 0.2, 4 threads.
 | Gemma 3 1B Q4_K_M | about 37–40 token/s | about 23–24 token/s |
 | Gemma 3 4B Q4_K_M | about 9–10 token/s | about 5–6 token/s |
 | Gemma 4 E2B Q4_0 | about 13–15 token/s | about 9 token/s |
+| LFM2.5-1.2B Q4_K_M | about 35 token/s | about 23–26 token/s |
+| LFM2.5-VL-1.6B Q4_K_M | about 33 token/s | about 23 token/s |
+| LFM3-1.7B Q4_K_M | about 21–22 token/s | about 14 token/s |
+| MiniCPM-V 4.7 1B Q4_K_M | about 54–55 token/s | about 25–26 token/s |
+| MiniCPM5-1B Q4_K_M | about 43–48 token/s | about 27–28 token/s |
+| MiniCPM5-2B Q4_K_M | about 15–16 token/s | about 11 token/s |
 
 iOS  
 iPhone 14 (6 GB RAM, iOS 26.6.2). Token speed with the same parameters.

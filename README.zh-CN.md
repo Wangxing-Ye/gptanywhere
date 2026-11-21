@@ -12,13 +12,14 @@ GPTAnywhere 在手机上使用端侧大模型实现对话，并翻译文字、�
   <img src="docs/screenshots/voice.jpg" width="30%" alt="语音翻译">
 </p>
 <p align="center">
-  <img src="docs/screenshots/text-models.jpg" width="30%" alt="文本模型">
+  <img src="docs/screenshots/text-models-1.jpg" width="30%" alt="文本模型">
+  <img src="docs/screenshots/text-models-2.jpg" width="30%" alt="文本模型，续">
   <img src="docs/screenshots/speech-models.jpg" width="30%" alt="语音模型">
 </p>
 
 ## 功能
 
-- **Chat**：与当前文字模型进行自由对话。最近几轮放进一次调用，放不下的更早轮次丢掉。对话目前只留在这次进程的内存里。Qwen3-1.7B 和 Gemma 3 1B 先识别图片文字再发给模型。其它模型先使用该模型自己的 mmproj 对图片进行分析，再提交给模型。
+- **Chat**：与当前文字模型进行自由对话。最近几轮放进一次调用，放不下的更早轮次丢掉。对话目前只留在这次进程的内存里。Qwen3-1.7B、Gemma 3 1B、LFM2.5-1.2B、LFM3-1.7B、MiniCPM5-1B 和 MiniCPM5-2B 先识别图片文字再发给模型。其它模型，包括 LFM2.5-VL-1.6B 和 MiniCPM-V 4.7 1B，先使用该模型自己的 mmproj 对图片进行分析，再提交给模型。
 - **Text**：通过当前文字模型对输入文本进行翻译，自动识别文本语言进行相互翻译。
 - **Photo**：识别出照片里的文字，再通过当前文字模型进行翻译。拍照后先裁剪，确认的区域才送去识别。
 - **Voice**：识别出所语音文件或录音的的文字，再通过当前文字模型进行翻译。单次录音最长 30 秒。
@@ -38,6 +39,12 @@ GPTAnywhere 在手机上使用端侧大模型实现对话，并翻译文字、�
 | Gemma 3 4B Q4_K_M   | 2.49 GB | 851 MB | 支持   | 128K  |
 | Gemma 4 E2B Q4_0    | 2.84 GB | 557 MB | 支持   | 128K  |
 | Gemma 4 E4B Q4_0    | 4.59 GB | 560 MB | 支持   | 128K  |
+| LFM2.5-1.2B Q4_K_M  | 731 MB  | 无      | 不支持  | 32K   |
+| LFM3-1.7B Q4_K_M    | 1.10 GB | 无      | 不支持  | 256K  |
+| LFM2.5-VL-1.6B Q4_K_M | 731 MB | 583 MB | 支持   | 32K   |
+| MiniCPM-V 4.7 1B Q4_K_M | 672 MB | 1.11 GB | 支持 | 262K |
+| MiniCPM5-1B Q4_K_M  | 688 MB  | 无      | 不支持  | 128K  |
+| MiniCPM5-2B Q4_K_M  | 1.56 GB | 无      | 不支持  | 128K  |
 
 看图文件是语言模型旁边的另一个文件，也叫 mmproj。它把图片变成该模型能读的数据。表中的大小是这个文件本身，要在语言模型之外再下载。每个模型只用自己的看图文件。写着「无」的模型不能直接看图片，对话里会先把图片里的文字识别出来再交给模型。
 
@@ -72,6 +79,12 @@ GPTAnywhere 在手机上使用端侧大模型实现对话，并翻译文字、�
 | Gemma 3 4B | llama.cpp | 同上 | 同上 |
 | Gemma 4 E2B | llama.cpp | 同上 | 同上 |
 | Gemma 4 E4B | llama.cpp | 同上 | 同上 |
+| LFM2.5-1.2B | llama.cpp | 同上 | 同上 |
+| LFM3-1.7B | llama.cpp | 同上 | 同上 |
+| LFM2.5-VL-1.6B | llama.cpp | 同上 | 同上 |
+| MiniCPM-V 4.7 1B | llama.cpp | 同上 | 同上 |
+| MiniCPM5-1B | llama.cpp | 同上 | 同上 |
+| MiniCPM5-2B | llama.cpp | 同上 | 同上 |
 
 换模型只更换各自的 GGUF 文件。
 
@@ -149,7 +162,7 @@ Galaxy S21（8GB 内存，机型 SM-G991U，Android 13）。内存低于 12GB，
 
 文本模型
 
-- 可选：Qwen3-1.7B（1.28 GB）、Qwen3.5-0.8B（580 MB）、Qwen3.5-2B（1.40 GB）、Qwen3.5-4B（3.01 GB）、Gemma 3 1B（806 MB）、Gemma 3 4B（2.49 GB）、Gemma 4 E2B（2.84 GB）
+- 可选：Qwen3-1.7B（1.28 GB）、Qwen3.5-0.8B（580 MB）、Qwen3.5-2B（1.40 GB）、Qwen3.5-4B（3.01 GB）、Gemma 3 1B（806 MB）、Gemma 3 4B（2.49 GB）、Gemma 4 E2B（2.84 GB）、LFM2.5-1.2B（731 MB）、LFM2.5-VL-1.6B（731 MB）、LFM3-1.7B（1.10 GB）、MiniCPM-V 4.7 1B（672 MB）、MiniCPM5-1B（688 MB）、MiniCPM5-2B（1.56 GB）
 - 不可选：Gemma 4 E4B（4.59 GB）
 
 语音模型
@@ -158,7 +171,7 @@ Galaxy S21（8GB 内存，机型 SM-G991U，Android 13）。内存低于 12GB，
 - 不可选：Qwen3-ASR 1.7B float32（9.40 GB）
 
 Token 速度  
-参数设置为上下文 2048、温度 0.2、4 线程。
+参数设置为上下文 2048、温度 0.2、4 线程。LFM2.5-VL-1.6B 和 MiniCPM-V 4.7 1B 只测了语言文件，没有加载看图文件。
 
 | 模型 | 提示 | 生成 |
 | --- | --- | --- |
@@ -169,6 +182,12 @@ Token 速度
 | Gemma 3 1B Q4_K_M | 约 37–40 token/s | 约 23–24 token/s |
 | Gemma 3 4B Q4_K_M | 约 9–10 token/s | 约 5–6 token/s |
 | Gemma 4 E2B Q4_0 | 约 13–15 token/s | 约 9 token/s |
+| LFM2.5-1.2B Q4_K_M | 约 35 token/s | 约 23–26 token/s |
+| LFM2.5-VL-1.6B Q4_K_M | 约 33 token/s | 约 23 token/s |
+| LFM3-1.7B Q4_K_M | 约 21–22 token/s | 约 14 token/s |
+| MiniCPM-V 4.7 1B Q4_K_M | 约 54–55 token/s | 约 25–26 token/s |
+| MiniCPM5-1B Q4_K_M | 约 43–48 token/s | 约 27–28 token/s |
+| MiniCPM5-2B Q4_K_M | 约 15–16 token/s | 约 11 token/s |
 
 iOS  
 iPhone 14（6GB 内存，iOS 26.6.2），同样参数设置下的 Token 速度。

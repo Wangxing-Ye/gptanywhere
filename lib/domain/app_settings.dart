@@ -14,7 +14,13 @@ enum TextModelChoice {
   gemma3_1b('gemma-3-1b-it-q4-k-m', 'Gemma 3 1B', 0),
   gemma3_4b('gemma-3-4b-it-q4-k-m', 'Gemma 3 4B', 0),
   gemma4E2b('gemma-4-e2b-it-q4-0', 'Gemma 4 E2B', 0),
-  gemma4E4b('gemma-4-e4b-it-q4-0', 'Gemma 4 E4B', gemma4E4bMinBytes);
+  gemma4E4b('gemma-4-e4b-it-q4-0', 'Gemma 4 E4B', gemma4E4bMinBytes),
+  lfm25_1_2b('lfm2.5-1.2b-instruct-q4-k-m', 'LFM2.5-1.2B', 0),
+  lfm25Vl1_6b('lfm2.5-vl-1.6b-q4-k-m', 'LFM2.5-VL-1.6B', 0),
+  lfm3_1_7b('lfm3-1.7b-q4-k-m', 'LFM3-1.7B', 0),
+  minicpmV47_1b('minicpm-v-4.7-1b-q4-k-m', 'MiniCPM-V 4.7 1B', 0),
+  minicpm5_1b('minicpm5-1b-q4-k-m', 'MiniCPM5-1B', 0),
+  minicpm5_2b('minicpm5-2b-q4-k-m', 'MiniCPM5-2B', 0);
 
   const TextModelChoice(this.id, this.label, this.minMemoryBytes);
 

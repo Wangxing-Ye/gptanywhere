@@ -29,6 +29,7 @@ import 'services/platform_voice_capture.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   final support = await getApplicationSupportDirectory();
   final manifest = await rootBundle.loadString('models/manifest.json');
   final catalog = ModelCatalog.parse(manifest);

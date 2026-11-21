@@ -326,7 +326,12 @@ final _png = Uint8List.fromList(const [
 
 bool _composerFocused(WidgetTester tester) {
   return tester
-      .state<EditableTextState>(find.byType(EditableText))
+      .state<EditableTextState>(
+        find.descendant(
+          of: find.byType(TextField),
+          matching: find.byType(EditableText),
+        ),
+      )
       .widget
       .focusNode
       .hasFocus;

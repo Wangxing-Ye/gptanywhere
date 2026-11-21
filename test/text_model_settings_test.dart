@@ -80,7 +80,13 @@ void main() {
     await tester.pump();
 
     expect(find.text('4 B, downloaded'), findsOneWidget);
-    expect(find.text('Download'), findsNWidgets(6));
+    expect(find.text('Download'), findsNWidgets(12));
+    expect(find.text('LFM2.5-1.2B'), findsOneWidget);
+    expect(find.text('LFM3-1.7B'), findsOneWidget);
+    expect(find.text('LFM2.5-VL-1.6B'), findsOneWidget);
+    expect(find.text('MiniCPM-V 4.7 1B'), findsOneWidget);
+    expect(find.text('MiniCPM5-1B'), findsOneWidget);
+    expect(find.text('MiniCPM5-2B'), findsOneWidget);
     expect(find.text('Gemma 3 1B'), findsOneWidget);
     expect(find.text('Gemma 3 4B'), findsOneWidget);
     expect(find.text('Gemma 4 E2B'), findsOneWidget);
@@ -100,11 +106,16 @@ void main() {
     await tester.scrollUntilVisible(find.byType(Switch), 300);
     expect(tester.widget<Switch>(find.byType(Switch)).value, isFalse);
 
+    await tester.drag(find.byType(ListView), const Offset(0, 1200));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Qwen3.5-2B'));
     await tester.pump();
     expect((await harness.store.load()).textModel, TextModelChoice.qwen35_2b);
 
-    await tester.tap(find.byType(Switch));
+    await tester.scrollUntilVisible(find.byType(SwitchListTile), 300);
+    await tester.drag(find.byType(ListView), const Offset(0, -120));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(SwitchListTile));
     await tester.pump();
     expect((await harness.store.load()).thinkingEnabled, isTrue);
   });
@@ -120,7 +131,7 @@ void main() {
       find.widgetWithText(RadioListTile<TextModelChoice>, 'Qwen3.5-4B'),
     );
     expect(tile.enabled, isTrue);
-    expect(find.text('Download'), findsNWidgets(8));
+    expect(find.text('Download'), findsNWidgets(14));
 
     await tester.tap(find.text('Qwen3.5-4B'));
     await tester.pump();
